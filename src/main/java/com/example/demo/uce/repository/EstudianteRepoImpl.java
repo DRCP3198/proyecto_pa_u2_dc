@@ -6,7 +6,9 @@ import com.example.demo.uce.modelo.Estudiante;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 @Repository
+@Transactional
 public class EstudianteRepoImpl implements IEstudianteRepo {
 
 	@PersistenceContext
@@ -35,6 +37,7 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
 		Estudiante estudiante= this.buscar(id);
+		//Se busca a partir del id para poder eliminar al estudiante
 		this.entityManager.remove(estudiante);
 	}
 
