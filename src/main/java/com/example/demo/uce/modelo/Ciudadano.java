@@ -1,5 +1,6 @@
 package com.example.demo.uce.modelo;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ public class Ciudadano {
 	private String apellido;
 	
 	//Para decirle la relacion 1 a 1 ponemos la notacion @OneToOne
-	@OneToOne(mappedBy = "ciudadano")
+	@OneToOne(mappedBy = "ciudadano")//, //cascade = CascadeType.ALL)
 	//La relacion onetToOne le vamos a decir que el empleado se mapea
 	//a ciudadano
 	//Le debo decir empleado con que se va relacionar

@@ -26,6 +26,7 @@ public class CiudadanoRepoImpl  implements ICiudadanoRepo{
 		// TODO Auto-generated method stub
 		this.entityManager.merge( ciudadano);
 		
+		
 	}
 
 	@Override

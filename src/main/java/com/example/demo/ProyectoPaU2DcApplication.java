@@ -43,16 +43,43 @@ public class ProyectoPaU2DcApplication implements CommandLineRunner {
 		
 		
 	    Ciudadano ciu = new Ciudadano();
-	    ciu.setNombre("Dillan");
-	    ciu.setApellido("Coloma");
-	    this.ciudadanoService.guardar(ciu);
+	    ciu.setNombre("Renato ");
+	    ciu.setApellido("Coloma Pozo");
+	    //this.ciudadanoService.guardar(ciu);
+	    //this.ciudadanoService.borrar(8);
+	   
+        
+        /*ciu.setId(14);
+        this.ciudadanoService.modificar(ciu);*/
+       
+	  
 	    Empleado empleado = new Empleado();
-	    empleado.setSalario(new BigDecimal(20));
+	    empleado.setSalario(new BigDecimal(300));
 	    empleado.setIngreso(LocalDateTime.now());
 	    empleado.setCiudadano(ciu);
+	    this.ciudadanoService.guardar(ciu);
 	    ciu.setEmpleado(empleado);
 	    
+	    //this.ciudadanoService.borrar(21);
 	    this.empleadoService.agregar(empleado);
+	   
+	    //this.empleadoService.agregar(empleado);
+	    //this.empleadoService.borrar(3);
+	    
+	    
+	    //Segundo ejemplo
+	    /*Ciudadano ciu2 = new Ciudadano();
+	    ciu2.setNombre("Alberto");
+	    ciu2.setApellido("Coloma Pozo");
+	    
+	    Empleado empleado2 = new Empleado();
+	    empleado2.setSalario(new BigDecimal(200));
+	    empleado2.setIngreso(LocalDateTime.now());
+	    empleado2.setCiudadano(ciu2);
+	    ciu2.setEmpleado(empleado2);*/
+	    
+	    //this.empleadoService.agregar(empleado2);
+	   
 	 
 	   
 	    
