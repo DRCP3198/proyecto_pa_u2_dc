@@ -91,28 +91,62 @@ public class ProyectoPaU2DcApplication implements CommandLineRunner {
 		//HOTEL
 		
 		Hotel hotel = new Hotel();
-		List<Habitacion > habitaciones = new ArrayList<>();
+		
 		
 		hotel.setNombre("VeltMont ");
 		hotel.setDireccion("Yaruqui");
 		
+		
+		List<Habitacion > habitaciones = new ArrayList<>();
 		Habitacion hab = new Habitacion();
 		hab.setNumero("A29");
-		//hab.setNumero("A226");
-		//hab.setNumero("A227");
-		//hab.setNumero("A228");
 		hab.setHotel(hotel);
 		habitaciones.add(hab);
-		hotel.setHabitaciones(habitaciones);
 		
-		this.hotelService.agregar(hotel);
-		this.hotelService.borrar(11);
+		
+		Habitacion hab1 = new Habitacion();
+		hab1.setNumero("A28");
+		hab1.setHotel(hotel);
+		habitaciones.add(hab1);
+		
+		
+		
+		Habitacion hab2 = new Habitacion();
+		hab2.setNumero("A30");
+		hab2.setHotel(hotel);
+		habitaciones.add(hab2);
+		
+		
+		Habitacion hab3 = new Habitacion();
+		hab3.setNumero("A31");
+		hab3.setHotel(hotel);
+		habitaciones.add(hab3);
+		
+		
+		Habitacion hab4 = new Habitacion();
+		hab4.setNumero("A32");
+		hab4.setHotel(hotel);
+		habitaciones.add(hab4);
+		
+		hotel.setHabitaciones(habitaciones);
 	
 		
-		hotel.setDireccion("San Andres -Quito");
+		
+		
+		this.hotelService.agregar(hotel);
+		this.hotelService.borrar(4);
+		Hotel hotelito = this.hotelService.encontrar(8);
+		hotelito.setDireccion("Tumbaco");
+		hotelito.setNombre("Hotel Quito");
+		this.hotelService.modificar(hotelito);
+		
+	
+		
+		/*hotel.setDireccion("San Andres -Quito");
 		hotel.setId(9);
-		this.hotelService.modificar(hotel);
-		this.hotelService.encontrar(7);
+		//this.hotelService.modificar(hotel);
+		this.hotelService.encontrar(7);*/
+		
 	   
 
 	}
