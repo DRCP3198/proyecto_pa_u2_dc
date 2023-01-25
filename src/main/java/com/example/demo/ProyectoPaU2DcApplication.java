@@ -19,6 +19,7 @@ import com.example.demo.uce.modelo.Profesor;
 import com.example.demo.uce.service.ICiudadanoService;
 import com.example.demo.uce.service.IEmpleadoService;
 import com.example.demo.uce.service.IEstudianteService;
+import com.example.demo.uce.service.IHabitacionService;
 import com.example.demo.uce.service.IHotelService;
 import com.example.demo.uce.service.IProfesorService;
 
@@ -39,6 +40,9 @@ public class ProyectoPaU2DcApplication implements CommandLineRunner {
 	
 	@Autowired
 	private IHotelService hotelService;
+	
+	@Autowired
+	private IHabitacionService habitacionService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU2DcApplication.class, args);
@@ -131,14 +135,38 @@ public class ProyectoPaU2DcApplication implements CommandLineRunner {
 		hotel.setHabitaciones(habitaciones);
 	
 		
+		//Para agregar a un hotel especifico un dormitorio extra
+		/*Hotel hot= this.hotelService.encontrar(7);
+		Habitacion hab5 = new Habitacion();
+		hab5.setNumero("C56");
+		hab5.setHotel(hot);
+		habitaciones.add(hab5);
+		this.habitacionService.guardar(hab5);*/
+		//this.habitacionService.eliminar(11);
+		
+		/*Habitacion habit = this.habitacionService.encontrar(31);
+		this.habitacionService.eliminar(31);*/
+		//****************************************************************
+		//Consultar el hotel por su id y imprimir todas sus habitaciones
+		 Hotel consulta = this.hotelService.encontrar(5);
+		
+		 //consulta.getHabitaciones();
+		 for (Habitacion habitacion : consulta.getHabitaciones()) {
+			
+			System.out.println(habitacion);
+			
+		}
 		
 		
-		this.hotelService.agregar(hotel);
+		//this.
+		
+		
+		/*this.hotelService.agregar(hotel);
 		this.hotelService.borrar(4);
 		Hotel hotelito = this.hotelService.encontrar(8);
 		hotelito.setDireccion("Tumbaco");
 		hotelito.setNombre("Hotel Quito");
-		this.hotelService.modificar(hotelito);
+		this.hotelService.modificar(hotelito);*/
 		
 	
 		

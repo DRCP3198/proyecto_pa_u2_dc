@@ -28,9 +28,20 @@ public class HotelRepositoryImpl implements IHotelRepo {
 		
 	}
 
+	//Un reporte de habitaciones y de hoteles
 	@Override
 	public Hotel buscar(Integer id) {
 		// TODO Auto-generated method stub
+		Hotel hotel = this.entityManager.find(Hotel.class, id);
+		hotel.getHabitaciones().size();
+		return hotel;
+	}
+	
+	//UN reporte de solo hoteles
+	public Hotel buscarLigero(Integer id) {
+		// TODO Auto-generated method stub
+		Hotel hotel = new Hotel();
+		
 		return this.entityManager.find(Hotel.class, id);
 	}
 
