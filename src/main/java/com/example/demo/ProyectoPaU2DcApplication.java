@@ -3,19 +3,24 @@ package com.example.demo;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.demo.uce.modelo.Autor;
 import com.example.demo.uce.modelo.Ciudadano;
 import com.example.demo.uce.modelo.Empleado;
 import com.example.demo.uce.modelo.Estudiante;
 import com.example.demo.uce.modelo.Habitacion;
 import com.example.demo.uce.modelo.Hotel;
+import com.example.demo.uce.modelo.Libro;
 import com.example.demo.uce.modelo.Profesor;
+import com.example.demo.uce.service.IAutorService;
 import com.example.demo.uce.service.ICiudadanoService;
 import com.example.demo.uce.service.IEmpleadoService;
 import com.example.demo.uce.service.IEstudianteService;
@@ -32,7 +37,7 @@ public class ProyectoPaU2DcApplication implements CommandLineRunner {
 	@Autowired
 	private IProfesorService iProfesorService;*/
 	
-	@Autowired
+	/*@Autowired
 	private ICiudadanoService ciudadanoService;
 	
 	@Autowired
@@ -42,7 +47,12 @@ public class ProyectoPaU2DcApplication implements CommandLineRunner {
 	private IHotelService hotelService;
 	
 	@Autowired
-	private IHabitacionService habitacionService;
+	private IHabitacionService habitacionService;*/
+	
+	@Autowired 
+	private IAutorService autorService;
+	
+	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU2DcApplication.class, args);
@@ -94,7 +104,7 @@ public class ProyectoPaU2DcApplication implements CommandLineRunner {
 	 //----------------------------------------------------------------------------------------------------
 		//HOTEL
 		
-		Hotel hotel = new Hotel();
+		/*Hotel hotel = new Hotel();
 		
 		
 		hotel.setNombre("VeltMont ");
@@ -132,7 +142,7 @@ public class ProyectoPaU2DcApplication implements CommandLineRunner {
 		hab4.setHotel(hotel);
 		habitaciones.add(hab4);
 		
-		hotel.setHabitaciones(habitaciones);
+		hotel.setHabitaciones(habitaciones);*/
 	
 		
 		//Para agregar a un hotel especifico un dormitorio extra
@@ -148,14 +158,14 @@ public class ProyectoPaU2DcApplication implements CommandLineRunner {
 		this.habitacionService.eliminar(31);*/
 		//****************************************************************
 		//Consultar el hotel por su id y imprimir todas sus habitaciones
-		 Hotel consulta = this.hotelService.encontrar(5);
+		 /*Hotel consulta = this.hotelService.encontrar(5);
 		
 		 //consulta.getHabitaciones();
 		 for (Habitacion habitacion : consulta.getHabitaciones()) {
 			
 			System.out.println(habitacion);
 			
-		}
+		}*/
 		
 		
 		//this.
@@ -174,6 +184,33 @@ public class ProyectoPaU2DcApplication implements CommandLineRunner {
 		hotel.setId(9);
 		//this.hotelService.modificar(hotel);
 		this.hotelService.encontrar(7);*/
+		
+		//EL SERVICE AUTOR
+		//Vamos a crear el autor con su libro programacion web
+		//Una instancia de autor WS y va a a tener 2 libros
+		//EL un libro va a ser p.web y redes
+		
+		Set <Libro> lib = new HashSet<>();
+		Set <Autor> aut = new HashSet<>();
+		Autor autor = new Autor();
+		autor.setNombre("WS");
+		aut.add(autor);
+		autor.setLibros(lib);
+		Libro libro = new Libro();
+		libro.setNombre("Programacion Web");
+		libro.setEditorial("Romana");
+		lib.add(libro);
+		libro.setAutores(aut);
+		
+		
+		Libro libro1 = new Libro();
+		libro1.setNombre("Redes");
+		libro1.setEditorial("Parchis");
+		lib.add(libro1);
+		libro1.setAutores(aut);
+		
+		this.autorService.agregar(autor);
+		
 		
 	   
 
